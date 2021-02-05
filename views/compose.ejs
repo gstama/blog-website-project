@@ -1,13 +1,25 @@
 <%- include("includes/header.ejs") -%>
 <h1>Compose</h1>
-<form class="d-flex" action="/compose" method="post">
-  <input
-    name="postTitle"
-    class="form-control me-2"
-    type="text"
-    placeholder="Entry"
-    aria-label="Entry"
-  />
+<form action="/compose" method="post">
+  <div class="mb-3">
+    <label class="form-label" for="postTitle">Title</label>
+    <input
+      name="postTitle"
+      class="form-control me-2"
+      type="text"
+      aria-label="Entry"
+      autocomplete="off"
+    />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="postText">Post</label>
+    <textarea
+      name="postText"
+      class="form-control"
+      rows="8"
+      autocomplete="off"
+    ></textarea>
+  </div>
   <button class="btn btn-outline-dark" type="submit">Publish</button>
 </form>
 <%- include("includes/footer.ejs") -%>
