@@ -28,6 +28,16 @@ app.get('/about', (req, res, next) => {
   });
 });
 
+app.get('/contact', (req, res, next) => {
+  res.render('contact', {
+    contactContent: contactContent,
+  });
+});
+
+app.get('/compose', (req, res, next) => {
+  res.render('compose');
+});
+
 app.listen(3000, function () {
   console.log('Server started on port 3000');
 });
