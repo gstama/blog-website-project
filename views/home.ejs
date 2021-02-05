@@ -3,5 +3,8 @@
 <p><%= homeStartingContent %></p>
 <% posts.forEach((post) => { %>
 <h1><%= post.title %></h1>
-<p><%= post.body %></p>
+<p>
+  <%= post.body.substring(0, 100) + " ..." %>
+  <a class="link-primary" href="/posts/<%= post.title %> ">Read More</a>
+</p>
 <% }) %> <%- include("includes/footer.ejs") -%>
