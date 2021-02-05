@@ -11,6 +11,8 @@ const contactContent =
 
 const app = express();
 
+const posts = [];
+
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -20,6 +22,7 @@ app.get('/', (req, res, next) => {
   res.render('home', {
     homeStartingContent: homeStartingContent,
   });
+  console.log(posts);
 });
 
 app.get('/about', (req, res, next) => {
@@ -39,7 +42,11 @@ app.get('/compose', (req, res, next) => {
 });
 
 app.post('/compose', (req, res, next) => {
-  console.log(req.body.postTitle);
+  const post = {
+    title: req.body.postTitle,
+    body: req.body.postBody,
+  };
+  posts.push(post);
   res.redirect('/');
 });
 
